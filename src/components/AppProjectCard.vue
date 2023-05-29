@@ -19,6 +19,14 @@ export default{
   },
 
   methods: {
+    projectImage() {
+      console.log(this.project)
+      if(this.project.project_image == null) {
+        return "https://static.vecteezy.com/system/resources/previews/004/141/669/non_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg";
+      } else {
+        return this.baseUrl + 'storage/' + this.project.project_image;
+      }
+    }
   }
 }
 
@@ -26,7 +34,7 @@ export default{
 
 <template>
   <div class="card" style="width: 18rem;">
-    <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+    <img class="card-img-top" :src="projectImage()" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">{{ project.name }}</h5>
       <p class="card-text">{{ project.desc }}</p>
@@ -35,5 +43,7 @@ export default{
 </template>
 
 <style lang="scss">
-  
+  .card{
+    min-height: 400px;
+  }
 </style>
