@@ -20,7 +20,6 @@ export default{
 
   methods: {
     projectImage() {
-      console.log(this.project)
       if(this.project.project_image == null) {
         return "https://static.vecteezy.com/system/resources/previews/004/141/669/non_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg";
       } else {
@@ -44,6 +43,12 @@ export default{
 
 <style lang="scss">
   .card{
-    min-height: 400px;
+    height: 300px;
+    display: flex;
+    .card-body{
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
   }
 </style>
