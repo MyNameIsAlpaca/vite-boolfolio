@@ -124,6 +124,7 @@ export default {
     background-color: var(--secondary-color);
     display: flex;
     font-size: 1em;
+    position: fixed;
     .mid-nav{
       flex-direction: column;
       .box{

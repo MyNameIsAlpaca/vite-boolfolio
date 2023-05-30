@@ -43,8 +43,13 @@ export default {
     width: 50%;
     height: calc(100vh - 90px);
     border: 30px solid var(--primary-color);
+    background-color: var(--primary-color);
     
     .info{
+      border-radius: 20px;
+      background-image: url('./img/background.jpg');
+      background-size: cover;
+      background-position: right;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -69,6 +74,26 @@ export default {
     flex-direction: column;
     .info{
       text-align: center;
+    }
+  }
+}
+
+@media screen and (max-width: 992px){
+  .main{
+    max-width: calc(100vw - 100px);
+    margin-left: 100px;
+    height: 100vh;
+    flex-direction: column;;
+    .left-section{
+      height: 100vh;
+      width: 100%;
+      .info{
+        padding: 0;
+      }
+    }
+    .right-section{
+      height: 100vh;
+      width: 100%;
     }
   }
 }
