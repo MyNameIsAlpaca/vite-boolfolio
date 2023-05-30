@@ -1,11 +1,25 @@
-<script setup>
-import AppMain from './components/AppMain.vue'
+<script>
+import AppNav from './components/AppNav.vue'; 
+
+export default {
+  name: "App",
+  data() {
+    return {
+
+    };
+  },
+  components: { 
+      AppNav,
+    }
+}
+
 </script>
 
 <template>
-  <AppMain></AppMain>
+  <AppNav></AppNav>
+  <router-view></router-view>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 
 </style>
