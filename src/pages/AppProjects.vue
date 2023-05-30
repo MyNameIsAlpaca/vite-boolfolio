@@ -41,9 +41,31 @@ export default {
 </script>
 
 <template>
-
+  <div class="container">
+    <h1>I miei progetti</h1>
+    <div class="card-container">
+      <div v-for="project in projects" class="bt-2">
+        <AppProjectCard :project="project"></AppProjectCard>
+      </div>
+      <div class="more">
+        <button @click="changeCurrentPage">Carica altro</button>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
-
+.container {
+  h1 {
+    text-align: center;
+    padding-top: 20px;
+  }
+  .card-container {
+    display: flex;
+    gap: 20px;
+    padding-top: 30px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
 </style>

@@ -16,10 +16,10 @@ export default {
       &lt;Nav>
     </div>
     <div class="mid-nav">
-      <button><span class="box">Home</span></button>
-      <button><span class="box">About me</span></button>
-      <button><span class="box">Progetti</span></button>
-      <button><span class="box">Contatti</span></button>
+      <router-link class="pc" :to="{ name: 'home' }"><button><span class="box">Home</span></button></router-link>
+      <router-link class="pc" :to="{ name: 'about-me' }"><button><span class="box">About me</span></button></router-link>
+      <router-link class="pc" :to="{ name: 'projects' }"><button><span class="box">Progetti</span></button></router-link>
+      <router-link class="pc" :to="{ name: 'home' }"><button><span class="box">Contatti</span></button></router-link>
     </div>
     <div class="right-nav">
       &lt;/Nav>
@@ -31,7 +31,7 @@ export default {
   .nav{
     width: 100vw;
     height: 90px;
-    background-color: #232d36;
+    background-color: var(--secondary-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -39,10 +39,14 @@ export default {
     .right-nav, .left-nav{
       font-size: 1.5em;
       padding: 0px 10px;
+      color: lightgray;
     }
     .mid-nav{
       display: flex;
       gap: 20px;
+    }
+    .smartphone{
+      display: none;
     }
     .box {
     width: 140px;
@@ -111,5 +115,23 @@ export default {
     transform: translateX(0);
     transition: .3s transform linear, .3s height linear .5s;
   }
+    }
+
+    @media screen and (max-width: 992px) {
+      .nav{
+    width: 120px;
+    height: 100vh;
+    background-color: var(--secondary-color);
+    display: flex;
+    font-size: 1em;
+    .mid-nav{
+      flex-direction: column;
+      .box{
+        width: 100px;
+        margin: 0;
+        font-size: 0.8em;
+      }
+    }
+      }
     }
 </style>
