@@ -32,16 +32,18 @@ export default{
 </script>
 
 <template>
-  <div class="cardProject">
-    <div class="card-image">
-      <img :src="projectImage()" alt="">
+  <router-link :to="{name: 'single-project', params: {slug: project.slug}}">
+    <div class="cardProject">
+      <div class="card-image">
+        <img :src="projectImage()" alt="">
+      </div>
+      <p class="card-title">{{ project.name }}</p>
+      <p class="card-body">
+      {{ project.desc }}
+      </p>
+      <p class="footer">{{ project.publication_date }}</p>
     </div>
-    <p class="card-title">{{ project.name }}</p>
-    <p class="card-body">
-    {{ project.desc }}
-    </p>
-    <p class="footer">{{ project.publication_date }}</p>
-  </div>
+  </router-link>
 </template>
 
 <style lang="scss">
