@@ -32,24 +32,64 @@ export default{
 </script>
 
 <template>
-  <div class="card" style="width: 18rem;">
-    <img class="card-img-top" :src="projectImage()" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">{{ project.name }}</h5>
-      <p class="card-text">{{ project.desc }}</p>
-      <RouterLink :to="{name: 'single-project', params: {slug: project.slug}}" class="btn">Apri</RouterLink>
+  <div class="cardProject">
+    <div class="card-image">
+      <img :src="projectImage()" alt="">
     </div>
+    <p class="card-title">{{ project.name }}</p>
+    <p class="card-body">
+    {{ project.desc }}
+    </p>
+    <p class="footer">{{ project.publication_date }}</p>
   </div>
 </template>
 
 <style lang="scss">
-  .card{
-    height: 300px;
+  .cardProject {
+    padding: 20px;
+    width: 300px;
+    border-radius: 20px;
+    background: var(--secondary-color);
+    transition: 0.4s;
+    min-height: 400px;
+    max-height: 400px;
     display: flex;
-    .card-body{
-      display: flex;
-      flex-direction: column;
-      text-align: center;
+    flex-direction: column;
+    justify-content: space-between;
+    .card-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--primary-color);
+    margin: 15px 0 0 10px;
+  }
+  .card-body {
+    color: white;
+    font-size: 15px;
+  }
+  .card-image {
+    border-radius: 15px;
+    object-fit: cover;
+    object-position: center;
+    overflow: hidden;
+    img{
+      height: 180px;
     }
   }
+  .footer {
+    color: lightgray;
+  }
+  .date {
+    font-weight: 700;
+  }
+}
+.cardProject:hover {
+  translate: 0 -10px;
+  cursor: pointer;
+}
+
+
+
+
+
+
 </style>
