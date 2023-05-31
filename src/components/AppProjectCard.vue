@@ -37,6 +37,7 @@ export default{
     <div class="card-body">
       <h5 class="card-title">{{ project.name }}</h5>
       <p class="card-text">{{ project.desc }}</p>
+      <RouterLink :to="{name: 'single-project', params: {slug: project.slug}}" class="btn">Apri</RouterLink>
     </div>
   </div>
 </template>
