@@ -7,6 +7,7 @@ export default {
     return{
       project: {},
       projectSlug: '',
+      projectExist: false,
     }
   },
   mounted(){
@@ -17,7 +18,12 @@ export default {
   methods: {
     getProject(){
       axios.get('http://127.0.0.1:8000/api/projects/' + this.projectSlug).then(response => {
-        this.project = response.data.project
+        if(response.data.success) {
+          this.project = response.data.project
+          this.projectExist = true
+        }else{
+          this.projectExist = false
+        }
       });
     }
   }
@@ -26,7 +32,12 @@ export default {
 
 <template>
   <div>
-    <h1>{{ project.name }}</h1>
+    <div v-if="projectExist" class="container">
+      Esiste
+    </div>
+    <div v-else class="container" >
+      Non esiste
+    </div>
 
   </div>
 </template>
