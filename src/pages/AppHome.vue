@@ -60,9 +60,7 @@ export default {
         </swiper> 
       </div>
       <div class="right-section">
-        <div class="title">
-          <h1>Gabriele Saragosa</h1>
-        </div>
+        <h1>Gabriele Saragosa</h1>
         <span>- Web Developer Junior -</span>
       </div>
     </div>
@@ -101,13 +99,14 @@ export default {
     height: calc(100vh - 70px);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding-top: 200px;
+    justify-content: center;
     h1{
       font-size: 3em;
       color: lightgray;
+      text-shadow: 1px 1px 2px black;
     }
     span{
+      text-shadow: 1px 1px 2px black;
       width: fit-content;
       overflow: hidden;
       white-space: nowrap;
@@ -185,6 +184,49 @@ export default {
 .swiper-slide:nth-child(7n) {
   background-color: darken(#e4453a, 10%);
   border: 5px solid #e4453a;
+}
+
+@media screen and (max-width: 992px) {
+  .main-container{
+    flex-direction: column;
+    padding-left: 150px;
+  }
+  .left-section{
+    width: 100%;
+    height: fit-content;
+  }
+  .right-section{
+    width: 100%;
+    height: fit-content;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main-container{
+    gap: 100px;
+  }
+  .left-section{
+
+    gap: 10px;
+    .image-container{
+      width: 150px;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .main-container{
+    padding-left: 50px;
+  }
+  .right-section{
+    h1{
+      font-size: 2em;
+    }
+    span{
+      font-size: 1.5em;
+    }
+  }
 }
 
 }
