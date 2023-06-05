@@ -48,6 +48,7 @@ export default {
         <div class="image-container">
           <img src="/img/curriculum_foto_def.jpg" alt="Immagine di profilo">
         </div>
+        <h3 class="pt-3"><em>Conoscenze:</em></h3>
         <swiper :grabCursor="true" :effect="'creative'" :creativeEffect="{ prev: { shadow: true, translate: [0, 0, -400],}, next: { translate: ['100%', 0, 0],},}" :modules="modules" class="mySwiper">
           <swiper-slide><i class="fa-brands fa-html5"></i><span class="swiper_name">Html</span> <em class="swipe_arrow">swipe <i class="fa-solid fa-arrow-right"></i></em></swiper-slide>
           <swiper-slide><i class="fa-brands fa-css3-alt"></i><span class="swiper_name">Css</span></swiper-slide>
