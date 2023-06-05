@@ -13,7 +13,7 @@ export default {
 <template>
   <div class="nav">
     <div class="left-nav">
-      &lt;Nav>
+      &lt;HelloWorld!>
     </div>
     <div class="mid-nav">
       <router-link class="pc" :to="{ name: 'home' }"><button><span class="box">Home</span></button></router-link>
@@ -22,7 +22,7 @@ export default {
       <router-link class="pc" :to="{ name: 'contact' }"><button><span class="box">Contatti</span></button></router-link>
     </div>
     <div class="right-nav">
-      &lt;/Nav>
+      &lt;/HelloWorld!>
     </div>
   </div>
 </template>
@@ -36,16 +36,18 @@ export default {
 }
 .nav{
   width: 100vw;
-  height: 90px;
-  background-color: var(--secondary-color);
+  height: 70px;
+  background: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
   
   .right-nav, .left-nav{
     font-size: 1.5em;
     padding: 0px 10px;
     color: lightgray;
+    text-shadow: 1px 1px 2px black;
   }
   .mid-nav{
     display: flex;
@@ -65,8 +67,8 @@ export default {
     padding: 15px;
     text-align: center;
     margin: 0 5px;
-    background: transparent;
     text-transform: uppercase;
+    text-shadow: 1px 1px 2px black;
   }
 
   button{
@@ -122,12 +124,21 @@ export default {
   }
 }
 
+@media screen and (max-width: 1200px) {
+  .nav{
+    .left-nav, .right-nav {
+      font-size: 1em
+    }
+    
+  }
+    
+
+}
 
 @media screen and (max-width: 992px) {
   .nav{
     width: 120px;
     height: 100vh;
-    background-color: var(--secondary-color);
     display: flex;
     font-size: 1em;
     position: fixed;
