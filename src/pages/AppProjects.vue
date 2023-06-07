@@ -7,8 +7,7 @@ export default {
   data() {
     return {
       projects: [],
-      currentPage: 1,
-      totalPage: 0,
+      activeIndex: 1,
     };
   },
   created() {
@@ -16,23 +15,28 @@ export default {
   },
   methods: {
     getProjects() {
-      axios.get("http://127.0.0.1:8000/api/projects?page=" + this.currentPage).then(response => {
-        this.projects = response.data.results.data;
-        this.totalPage = response.data.results.last_page;
-        console.log(this.totalPage)
-        console.log(this.currentPage)
-
+      axios.get("http://127.0.0.1:8000/api/projects").then(response => {
+        this.projects = response.data.results;
       });
     },
-    changeCurrentPage() {
-      if(this.currentPage < this.totalPage){
-        this.currentPage++
-        this.getProjects()
-      } else {
-        this.currentPage--
-        this.getProjects()
+
+    goLeft() {
+      if (this.activeIndex !== 0) {
+        this.activeIndex--;
+        if(this.activeIndex == 0) {
+          this.activeIndex = this.projects.length - 1;
+        }
       }
     },
+    goRight() {
+      if (this.activeIndex !== this.projects.length - 1) {
+        this.activeIndex++;
+        if(this.activeIndex == this.projects.length - 1) {
+          this.activeIndex = this.activeIndex = 1;
+        }
+      }
+    },
+
   },
   components: {
     AppProjectCard,
@@ -44,13 +48,14 @@ export default {
   <div class="background">
     <div class="main">
       <h1>I miei progetti</h1>
-      <div class="card-container">
-        <div v-for="project in projects" class="bt-2">
-          <AppProjectCard :project="project"></AppProjectCard>
+      <div class="container">
+        <div class="card-container container">
+          <button class="btn btn-outline-secondary" @click="goLeft()"><i class="fa-solid fa-arrow-left"></i></button>
+          <div v-for="(project, index) in projects" v-show="index == this.activeIndex" class="bt-2">
+            <AppProjectCard :project="project"></AppProjectCard>
+          </div>
+          <button class="btn btn-outline-secondary" @click="goRight()"><i class="fa-solid fa-arrow-right"></i></button>
         </div>
-      </div>
-      <div class="more">
-        <button @click="changeCurrentPage">Carica altro</button>
       </div>
     </div>
   </div>
@@ -58,7 +63,7 @@ export default {
 
 <style lang="scss" scoped>
 .background{
-  background-image: url(/img/background-project.jpg);
+  background-color: black;
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -78,13 +83,15 @@ export default {
     }
     .card-container {
       display: flex;
-      gap: 50px;
       padding-top: 30px;
       flex-wrap: wrap;
-      max-width: 1600px;
       margin: auto;
-      padding: 100px 0;
+      padding: 50px 0;
+      gap: 40px;
+      align-items: center;
+      justify-content: center;
     }   
   }
 }
+
 </style>

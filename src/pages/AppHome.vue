@@ -18,12 +18,11 @@ export default {
   created() {
   
   },
-  methods: {
-    
-  },
+
   components: {
     Swiper,
     SwiperSlide,
+    
   },
   setup() {
       const onSwiper = (swiper) => {

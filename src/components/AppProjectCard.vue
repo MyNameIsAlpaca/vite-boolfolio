@@ -32,66 +32,58 @@ export default{
 </script>
 
 <template>
-  <router-link :to="{name: 'single-project', params: {slug: project.slug}}">
+  <router-link :to="{name: 'single-project', params: {slug: project.slug}}" style="text-decoration: none; color: inherit;">
     <div class="cardProject">
       <div class="card-image">
         <img :src="projectImage()" alt="">
       </div>
-      <p class="card-title">{{ project.name }}</p>
-      <p class="card-body">
-      {{ project.desc }}
-      </p>
-      <p class="footer">{{ project.publication_date }}</p>
+      <div class="text">
+        <h1 class="card-title">{{ project.name }}</h1>
+        <p class="card-body">
+        {{ project.desc }}
+        </p>
+        <p class="footer">{{ project.publication_date }}</p>
+      </div>
     </div>
   </router-link>
 </template>
 
 <style lang="scss">
-  .cardProject {
-    padding: 20px;
-    width: 300px;
-    border-radius: 20px;
-    background: var(--secondary-color);
-    transition: 0.4s;
-    min-height: 400px;
-    max-height: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    .card-title {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--primary-color);
-    margin: 15px 0 0 10px;
-  }
-  .card-body {
-    color: white;
-    font-size: 15px;
-  }
+.cardProject {
+  height: 100vh;
+  color: black;
+  height: 600px;
+  width: 1000px;
+  background-color: white;
+  border-radius: 10px;
   .card-image {
-    border-radius: 15px;
-    object-fit: cover;
-    object-position: center;
+    padding: 0;
+    height: 400px;
     overflow: hidden;
-    img{
-      height: 180px;
+    img {
+      border-radius: 10px 10px 0% 0%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
     }
   }
-  .footer {
-    color: lightgray;
-  }
-  .date {
-    font-weight: 700;
+  .text{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    .card-body{
+      padding-top: 10px;
+    }
   }
 }
-.cardProject:hover {
-  translate: 0 -10px;
-  cursor: pointer;
+
+@media screen and (max-width: 1400px) {
+  .cardProject{
+    width: 500px;
+    height: 500px;
+  }
+
 }
-
-
-
-
-
-
 </style>

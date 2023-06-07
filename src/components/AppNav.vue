@@ -42,7 +42,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  
+  z-index: 2;
   .right-nav, .left-nav{
     font-size: 1.5em;
     padding: 0px 10px;
@@ -142,6 +142,7 @@ export default {
     display: flex;
     font-size: 1em;
     position: fixed;
+    z-index: 2;
     .mid-nav{
       flex-direction: column;
       .box{
